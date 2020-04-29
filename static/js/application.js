@@ -291,7 +291,7 @@ function createGraph3() {
 
 function dataReplacer(id, socketValue) {
     if ( $("#"+id).html() !== socketValue) {
-         $("#"+id).html(socketValue);
+         $("#"+id).html(parseFloat(socketValue).toFixed(2));
     }
 }
 
