@@ -20,10 +20,9 @@ $(document).ready(function(){
           count  = addData(lineChart,msg.timestamp,msg.sin, count, -0.5, 0.6);
           count1 = addData(lineChart1,msg.timestamp,msg.cos, count1, -0.5, 0.6);
           count2 = addData(lineChart2,msg.timestamp,msg.tan, count2, -0.5, 0.6);
-          $("#OB_PEEP").html(msg.sin);
-          $("#OB_FlowMean").html(msg.con);
-          $("#OB_PPeak").html(msg.tan);
-        
+          dataReplacer("OB_PEEP", msg.sin);
+          dataReplacer("OB_FlowMean", msg.sin);
+          dataReplacer("OB_PPeak", msg.sin);        
     });
 
 });
@@ -290,18 +289,10 @@ function createGraph3() {
 
 }
 
-function roundToTwo(num) {    
-    return +(Math.round(num + "e+2")  + "e-2");
-}
-
-
 function dataReplacer(id, socketValue) {
-    var element = document.getElementById(id);
-    if ((typeof element === 'undefined') || (element !== socketValue)) {
-        element.innerHTML = roundToTwo(socketValue);
+    if ( $("#"+id).html() !== socketValue)) {
+         $("#"+id).html(socketValue);
     }
-    else {
-    } 
 }
 
 
