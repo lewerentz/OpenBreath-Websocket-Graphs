@@ -290,7 +290,7 @@ function createGraph3() {
 }
 
 function dataReplacer(id, socketValue) {
-    if ( $("#"+id).html() !== socketValue)) {
+    if ( $("#"+id).html() !== socketValue) {
          $("#"+id).html(socketValue);
     }
 }
